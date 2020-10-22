@@ -1,23 +1,19 @@
-# Microbiome analysis
+# Insect gut bacteria analysis
 
-# Load required libraries
+### Load required libraries ####
 library(tidyverse)
 library(reshape2)
 library(vegan)
 library(lme4)
 library(data.table)
-library(ggplot2); theme_set(theme_bw(base_size = 14))
+library(ggplot2)
 library(stringr)
 library(DESeq2)
 library(phyloseq)
 library(funrar)
 library(ggrepel)
-#library(MASS)
 
-# set working directory
-#setwd("H:/Documents/Speciale/New_DADA2_run_w_missing_samples")
-
-# load data
+### load data ################
 data <-
   read.table(
     "cleaned-data/otus.txt",
@@ -190,7 +186,7 @@ otu_table(physeq) <- otu_table(diagvst, taxa_are_rows = TRUE) #Replaces your OTU
 norm.data = t(as(otu_table(physeq), "matrix")) # notice it is tranversed
 dim(norm.data)
 min(norm.data)
-norm.data[norm.data<0] <- 0 # redundant since no cells are below 0, so set to 1 instead
+norm.data[norm.data<0] <- 0 
 
 rowSums(norm.data)
 min(rowSums(norm.data))
