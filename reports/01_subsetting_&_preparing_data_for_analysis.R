@@ -1,6 +1,5 @@
 # Preparing data for analysis
 
-setwd("H:/Documents/Speciale/New_DADA2_run_w_missing_samples")
 # Load required libraries
 library(tidyverse)
 library(reshape2)
